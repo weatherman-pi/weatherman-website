@@ -1,0 +1,8 @@
+{% extends '::base.html.twig' %}
+
+{% block _body %}
+    {{ render(controller('AppBundle:Navbar:topbar')) }}
+
+    {% block body %}{% endblock %}
+
+{% endblock _body %}
