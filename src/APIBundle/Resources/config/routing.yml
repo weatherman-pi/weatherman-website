@@ -1,0 +1,7 @@
+api_authenticate:
+    path:     /authenticate
+    defaults: { _controller: APIBundle:API:authenticate }
+
+api_update:
+    path:     /update
+    defaults: { _controller: APIBundle:API:updateStationInfo }

@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class WeatherStationRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getWeatherStationByPin($pin)
+    {
+        return $this->createQueryBuilder('w')
+            ->where('w.pin = :pin')
+            ->setParameter('pin', $pin)
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -37,6 +37,13 @@ class User extends BaseUser
         return $this->id;
     }
 
+    public function getWeatherStations(){
+        if(!isset($this->weatherStations)){
+            return array();
+        }
+        return $this->weatherStations;
+    }
+
     public function __construct()
     {
         parent::__construct();
