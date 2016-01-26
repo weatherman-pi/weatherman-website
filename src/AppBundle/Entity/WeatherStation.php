@@ -42,6 +42,11 @@ class WeatherStation
      */
     private $pin;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="weatherStations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     /**
      * Get id

@@ -22,6 +22,10 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\WeatherStation", mappedBy="user", cascade={"remove", "persist"})
+     */
+    private $weatherStations;
 
     /**
      * Get id
