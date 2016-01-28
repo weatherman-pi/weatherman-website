@@ -17,7 +17,7 @@ class WeatherStationRepository extends \Doctrine\ORM\EntityRepository
             ->where('w.id = :pin')
             ->setParameter('pin', $pin)
             ->getQuery()
-            ->getResult();
+            ->getOneOrNullResult();
     }
 
     public function getWeatherStationByName($name, $userID)

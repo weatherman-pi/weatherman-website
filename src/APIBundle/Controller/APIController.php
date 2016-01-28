@@ -4,10 +4,12 @@ namespace APIBundle\Controller;
 
 
 use AppBundle\Entity\WeatherStation;
+use AppBundle\Entity\WeatherStationData;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use UserBundle\Entity\User;
 
 class APIController extends Controller
@@ -85,25 +87,61 @@ class APIController extends Controller
     {
         if ($request->isMethod('POST')) {
             $pin = $request->request->get('pin', '');
-            $temperature = $request->request->get('temperature', '');;
-            $humidity = $request->request->get('humidity', '');;
+            $username = $request->request->get('username', '');
+            $password = $request->request->get('password', '');
+            $temperature = $request->request->get('temperature', '');
+            $humidity = $request->request->get('humidity', '');
+            $pressure = $request->request->get('pressure');
 
-            $response = array('result' => 'failed');
+            if ($this->verifyAuthentication($username, $password)) {
+                $user = $this->getUserByName($username);
 
-            if (strlen($pin) > 0 && strlen($temperature > 0) && strlen($humidity) > 0) {
-                $response = array(
-                    'result' => 'success'
-                );
+                if(is_numeric($temperature) && is_numeric($humidity) && is_numeric($pressure)){
+                    $weatherStation = $this->getDoctrine()->getRepository('AppBundle:WeatherStation')->getWeatherStationByPin($pin);
+
+                    if(isset($weatherStation)){
+                        $weatherStationData = new WeatherStationData();
+                        $weatherStationData->setWeatherStation($weatherStation);
+                        $weatherStationData->setTemperature($temperature);
+                        $weatherStationData->setHumidity($humidity);
+                        $weatherStationData->setPressure($pressure);
+                        $weatherStationData->setUpdateTime(new \DateTime("now"));
+
+                        $em = $this->getDoctrine()->getManager();
+                        $em->persist($weatherStationData);
+                        $em->flush();
+
+                        return new Response(json_encode(array('result' => true)));
+                    } else {
+                        return new Response(json_encode(array(
+                            'result' => false,
+                            'reason' => 'Invalid weather station pin.'
+                        )));
+                    }
+
+                } else {
+                    return new Response(json_encode(array(
+                        'result' => false,
+                        'reason' => 'Invalid parameters'
+                    )));
+                }
+            } else {
+                return new Response(json_encode(array(
+                    'result' => false,
+                    'reason' => 'Authentication failed'
+                )));
             }
-
-            return new Response(json_encode($response));
         }
         return new Response("Invalid request.");
     }
 
     private function getUserByName($username)
     {
-        return $this->get('fos_user.user_provider.username')->loadUserByUsername($username);
+        try {
+            return $this->get('fos_user.user_provider.username')->loadUserByUsername($username);
+        }catch(UsernameNotFoundException $e) {
+            return null;
+        }
     }
 
     private function verifyAuthentication($username, $password)
@@ -111,6 +149,9 @@ class APIController extends Controller
         $factory = $this->get('security.encoder_factory');
 
         $user = $this->getUserByName($username);
+
+        if(!$user) return false;
+        
         $encoder = $factory->getEncoder($user);
 
         return $encoder->isPasswordValid($user->getPassword(), $password, $user->getSalt());

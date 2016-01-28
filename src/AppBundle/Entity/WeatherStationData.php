@@ -24,9 +24,9 @@ class WeatherStationData
     /**
      * @var float
      *
-     * @ORM\Column(name="pression", type="float")
+     * @ORM\Column(name="pressure", type="float")
      */
-    private $pression;
+    private $pressure;
 
     /**
      * @var float
@@ -67,27 +67,27 @@ class WeatherStationData
     }
 
     /**
-     * Set pression
+     * Set pressure
      *
-     * @param float $pression
+     * @param float $pressure
      *
      * @return WeatherStationData
      */
-    public function setPression($pression)
+    public function setPressure($pressure)
     {
-        $this->pression = $pression;
+        $this->pressure = $pressure;
 
         return $this;
     }
 
     /**
-     * Get pression
+     * Get pressure
      *
      * @return float
      */
-    public function getPression()
+    public function getPressure()
     {
-        return $this->pression;
+        return $this->pressure;
     }
 
     /**
@@ -152,6 +152,22 @@ class WeatherStationData
     public function setUpdateTime($updateTime)
     {
         $this->updateTime = $updateTime;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWeatherStation()
+    {
+        return $this->weatherStation;
+    }
+
+    /**
+     * @param mixed $weatherStation
+     */
+    public function setWeatherStation($weatherStation)
+    {
+        $this->weatherStation = $weatherStation;
     }
 }
 
