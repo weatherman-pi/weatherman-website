@@ -49,6 +49,11 @@ class WeatherStation
     private $user;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\WeatherStationData", mappedBy="weatherStation", cascade={"remove", "persist"})
+     */
+    private $weatherStationDatas;
+
+    /**
      * Get id
      *
      * @return int
@@ -128,6 +133,38 @@ class WeatherStation
     public function getPin()
     {
         return $this->pin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWeatherStationDatas()
+    {
+        return $this->weatherStationDatas;
+    }
+
+    /**
+     * @param mixed $weatherStationDatas
+     */
+    public function setWeatherStationDatas($weatherStationDatas)
+    {
+        $this->weatherStationDatas = $weatherStationDatas;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
     }
 }
 

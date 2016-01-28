@@ -19,4 +19,13 @@ class WeatherStationRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function getWeatherStationsForUserID($userID){
+        return $this->createQueryBuilder('w')
+            ->innerJoin('w.user', 'u')
+            ->where('u.id = :userID')
+            ->setParameter('userID', $userID)
+            ->getQuery()
+            ->getResult();
+    }
 }
