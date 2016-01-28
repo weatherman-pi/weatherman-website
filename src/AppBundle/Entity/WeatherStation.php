@@ -15,9 +15,9 @@ class WeatherStation
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
@@ -34,13 +34,6 @@ class WeatherStation
      * @ORM\Column(name="location", type="string", length=255)
      */
     private $location;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="pin", type="integer")
-     */
-    private $pin;
 
     /**
      * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="weatherStations")
@@ -112,30 +105,6 @@ class WeatherStation
     }
 
     /**
-     * Set pin
-     *
-     * @param integer $pin
-     *
-     * @return WeatherStation
-     */
-    public function setPin($pin)
-    {
-        $this->pin = $pin;
-
-        return $this;
-    }
-
-    /**
-     * Get pin
-     *
-     * @return int
-     */
-    public function getPin()
-    {
-        return $this->pin;
-    }
-
-    /**
      * @return mixed
      */
     public function getWeatherStationDatas()
@@ -165,6 +134,10 @@ class WeatherStation
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    public function getPin(){
+        return $this->getId();
     }
 }
 

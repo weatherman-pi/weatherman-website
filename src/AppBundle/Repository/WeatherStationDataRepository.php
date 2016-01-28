@@ -14,7 +14,7 @@ class WeatherStationDataRepository extends \Doctrine\ORM\EntityRepository
     public function getLatestWeatherDataForPin($pin) {
         return $this->createQueryBuilder('wdata')
             ->innerJoin('wdata.weatherStation', 'wstation')
-            ->where('wstation.pin = :pin')
+            ->where('wstation.id = :pin')
             ->setParameter('pin', $pin)
             ->orderBy('wdata.updateTime', 'DESC')
             ->setMaxResults(1)

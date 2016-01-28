@@ -5,3 +5,7 @@ api_authenticate:
 api_update:
     path:     /update
     defaults: { _controller: APIBundle:API:updateStationInfo }
+
+api_create:
+    path: /create
+    defaults: { _controller: APIBundle:API:createStation }

@@ -14,13 +14,25 @@ class WeatherStationRepository extends \Doctrine\ORM\EntityRepository
     public function getWeatherStationByPin($pin)
     {
         return $this->createQueryBuilder('w')
-            ->where('w.pin = :pin')
+            ->where('w.id = :pin')
             ->setParameter('pin', $pin)
             ->getQuery()
             ->getResult();
     }
 
-    public function getWeatherStationsForUserID($userID){
+    public function getWeatherStationByName($name, $userID)
+    {
+        return $this->createQueryBuilder('w')
+            ->innerJoin('w.user', 'u')
+            ->where('u.id = :userID')
+            ->andWhere('w.name = :name')
+            ->setParameters(['name' => $name, 'userID' => $userID])
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    public function getWeatherStationsForUserID($userID)
+    {
         return $this->createQueryBuilder('w')
             ->innerJoin('w.user', 'u')
             ->where('u.id = :userID')
