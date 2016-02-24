@@ -2,3 +2,7 @@ app_homepage:
     path:     /
     defaults: { _controller: AppBundle:Home:index }
 
+app_user_homepage:
+    path:     /userhome
+    defaults: { _controller: AppBundle:Home:indexUser }
+
