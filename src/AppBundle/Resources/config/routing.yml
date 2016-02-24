@@ -6,3 +6,30 @@ app_user_homepage:
     path:     /userhome
     defaults: { _controller: AppBundle:Home:indexUser }
 
+app_proposition:
+    path:     /proposition
+    defaults: { _controller: AppBundle:Home:proposition }
+
+app_acquisition_connaissances:
+    path:     /acquisition_connaissances
+    defaults: { _controller: AppBundle:Home:acquisitionConnaissances }
+
+app_demarche_experimentale:
+    path:     /demarche_experimentale
+    defaults: { _controller: AppBundle:Home:demarcheExperimentale }
+
+app_difficultes:
+    path:     /difficultes
+    defaults: { _controller: AppBundle:Home:difficultes }
+
+app_resultats_recherche:
+    path:     /resultats_recherche
+    defaults: { _controller: AppBundle:Home:resultatsRecherche }
+
+app_conclusion_bilan:
+    path:     /conclusion_bilan
+    defaults: { _controller: AppBundle:Home:conclusionBilan }
+
+app_bibliographie:
+    path:     /bibliographie
+    defaults: { _controller: AppBundle:Home:bibliographie }

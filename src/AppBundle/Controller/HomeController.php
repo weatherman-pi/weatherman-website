@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends Controller
 {
@@ -41,5 +42,41 @@ class HomeController extends Controller
             'weatherStations' => $userWeatherStations,
             'weatherDatas' => $userWeatherDatas
         ));
+    }
+
+    public function propositionAction()
+    {
+        return new Response('En construction...');
+    }
+
+    public function resultatsRechercheAction()
+    {
+        return new Response('En construction...');
+    }
+
+
+    public function acquisitionConnaissancesAction()
+    {
+        return new Response('En construction...');
+    }
+
+    public function bibliographieAction()
+    {
+        return new Response('En construction...');
+    }
+
+    public function conclusionBilanAction()
+    {
+        return new Response('En construction...');
+    }
+
+    public function demarcheExperimentaleAction()
+    {
+        return new Response('En construction...');
+    }
+
+    public function difficultesAction()
+    {
+        return new Response('En construction...');
     }
 }
