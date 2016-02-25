@@ -1,0 +1,101 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+
+    <h1>Présentation de la recherche</h1>
+
+    <h3>Le Sujet</h3>
+    <p>
+        Face à l’inconnu des technologies des micro-ordinateurs tel le Raspberry Pi, nous avons décidé de faire un projet construit autour de l’un de ces derniers. Suite à une réflexion d’équipe, nous sommes venus à prendre la décision de fabriquer une station météo. Plutôt que de construire une
+        station météo statique avec des valeurs affichées sur un petit écran, nous avons décidé d’afficher les données récoltées en temps réel sur un site web.
+    </p>
+
+    <h3>L’enjeu</h3>
+    <p>
+        L’objectif de ce projet est de faire interagir l’informatique avec des données provenant de sources externes, c’est-à-dire des pièces électroniques. Quoi de mieux que des données super concrètes comme la météo ? Avec divers capteurs connectés à un Raspberry Pi à l’aide d’un Arduino, nous
+        souhaitons être capables d’extraire les données et de les appliquer dans un contexte de programmation. De plus, nous souhaitons mettre en pratique le développement web à l’aide du langage de programmation PHP et le framework Symfony. Le raspberry pi communiquera donc avec le serveur PHP à
+        travers un script python et un API REST.
+
+    </p>
+
+    <h3>L’expérimentation</h3>
+    <p>
+        La recherche et les expérimentations seront faites à l’aide d’outils d’expérimentation. Nous devrons développer des outils qui nous permettront d’obtenir les données dont nous avons besoin.
+        L’objectif est de réussir à mettre en commun des capteurs de température, d’humidité et de pression à l’aide d’un Arduino qui gère la communication entre les capteurs et le Raspberry Pi.
+        Cette expérimentation va nous permettre de comprendre comment la communication entre plusieurs périphériques électroniques fonctionne afin de nous apporter une meilleure compréhension générale dans le domaine.
+        De plus, connecter les capteurs physiques ensemble n’est pas le seul défi. Nous devons apprendre par la même occasion comment communiquer avec les capteurs à travers le langage Python et ensuite d’être capable d’afficher toutes les informations sur une plateforme web PHP. Ainsi, non
+        seulement nous devrons apprendre le PHP, mais nous devrons aussi apprendre le framework Symfony afin de créer une plateforme sécuritaire et robuste. Nous devrons aussi apprendre à bâtir une API REST avec celui-ci afin de permettre au script python d’informer le serveur lorsque les données
+        météos changent.
+    </p>
+
+    <h3>Les ressources</h3>
+    <p>
+        Le petit script python roulera directement sur le raspberry pi qui tournera sous le système d’exploitation « Raspbian ».
+        Pour le serveur PHP, celui-ci tournera sur un serveur Apache.
+    </p>
+
+    <br>
+
+    <span>Configuration physique du Raspberry Pi :</span>
+    <table class="table table-responsive table-bordered">
+        <tr>
+            <th>Matériel</th>
+            <th>Spécification</th>
+        </tr>
+        <tr>
+            <td>Processeur</td>
+            <td>900MHz quad-core ARM Corex-A7</td>
+        </tr>
+        <tr>
+            <td>Mémoire</td>
+            <td>1024 Mb RAM</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <span>Configuration logicielle du Raspberry Pi :</span>
+    <table class="table table-responsive table-bordered">
+        <tr>
+            <th>Matériel</th>
+            <th>Spécification</th>
+        </tr>
+        <tr>
+            <td>Système d'exploitation</td>
+            <td>Raspbian Jessie Lite</td>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>Version 3</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <span>Configuration logicielle du serveur PHP :</span>
+    <table class="table table-responsive table-bordered">
+        <tr>
+            <th>Matériel</th>
+            <th>Spécification</th>
+        </tr>
+        <tr>
+            <td>Système d’exploitation</td>
+            <td>Linux</td>
+        </tr>
+        <tr>
+            <td>SGBD</td>
+            <td>MySQL 5.1 ou ultérieur</td>
+        </tr>
+        <tr>
+            <td>Technologie utilisée</td>
+            <td>PHP 7.0.2</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <h3>Les limites</h3>
+    <p>
+        Puisque nous sommes limités en temps et avons un budget restreint, nous ne pourrons malheureusement pas implémenter toutes les fonctionnalités que nous aurions aimées. Ainsi, nous avons laissé tomber l’idée de calculer la vitesse du vent, déterminer son sens ainsi que de déterminer le temps qu’il fait à l’extérieur.
+    </p>
+{% endblock body %}

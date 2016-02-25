@@ -1,0 +1,10 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+    <h1>Démarche expérimentale</h1>
+
+    <p>
+        Pour réaliser ce projet, nous avons premièrement commandé les différentes pièces. Notre premier objectif était de créer une station météo complète mesurant plusieurs éléments météorologiques. Finalement, nous nous sommes aperçus que lire les données d’un seul capteur préfabriqué était déjà assez complexe et nous permettrait d’en apprendre suffisamment pour la réalisation du projet. De plus, avec le Arduino, il serait très simple d’ajouter d’autres capteurs analogiques. Une fois les pièces commandées, nous avons commencé à travailler sur le serveur. Nous avons dans un premier temps programmé le tout en local avant, c’est-à-dire la base de données, l’infrastructure ainsi que l’API REST pour finalement tout mettre en ligne sur un serveur. Une fois les pièces reçues, nous avons commencé à faire des expérimentations de connexion des éléments. Le premier défi fut de connecter le capteur au Arduino, car la connexion se fait à partir d’un lien série. Il a donc fallu apprendre à interpréter des données provenant d’un lien série, chose que nous n’avions jamais faite. Par la suite, il a fallu connecter le Arduino au Raspberry Pi. Les données entre les deux voyagent une fois de plus par lien série. Une fois la connexion réussie, nous avons créé un script en python. Ce script fait alors une demande au Arduino pour récupérer les données des capteurs pour ensuite informer notre serveur PHP à travers un API REST. Une fois les données envoyées à l’API REST, le serveur PHP enregistre automatiquement les données des stations météos dans une base de données, permettant l’affichage sur le site web.
+    </p>
+{% endblock %}
+

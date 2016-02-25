@@ -8,28 +8,28 @@ app_user_homepage:
 
 app_proposition:
     path:     /proposition
-    defaults: { _controller: AppBundle:Home:proposition }
+    defaults: { _controller: AppBundle:Document:proposition }
 
 app_acquisition_connaissances:
     path:     /acquisition_connaissances
-    defaults: { _controller: AppBundle:Home:acquisitionConnaissances }
+    defaults: { _controller: AppBundle:Document:acquisitionConnaissances }
 
 app_demarche_experimentale:
     path:     /demarche_experimentale
-    defaults: { _controller: AppBundle:Home:demarcheExperimentale }
+    defaults: { _controller: AppBundle:Document:demarcheExperimentale }
 
 app_difficultes:
     path:     /difficultes
-    defaults: { _controller: AppBundle:Home:difficultes }
+    defaults: { _controller: AppBundle:Document:difficultes }
 
 app_resultats_recherche:
     path:     /resultats_recherche
-    defaults: { _controller: AppBundle:Home:resultatsRecherche }
+    defaults: { _controller: AppBundle:Document:resultatsRecherche }
 
 app_conclusion_bilan:
     path:     /conclusion_bilan
-    defaults: { _controller: AppBundle:Home:conclusionBilan }
+    defaults: { _controller: AppBundle:Document:conclusionBilan }
 
 app_bibliographie:
     path:     /bibliographie
-    defaults: { _controller: AppBundle:Home:bibliographie }
+    defaults: { _controller: AppBundle:Document:bibliographie }
