@@ -105,7 +105,7 @@ class APIController extends Controller
                         $weatherStationData->setTemperature($temperature);
                         $weatherStationData->setHumidity($humidity);
                         $weatherStationData->setPressure($pressure);
-                        $weatherStationData->setUpdateTime(new \DateTime("now"));
+                        $weatherStationData->setUpdateTime(new \DateTime("now", new \DateTimeZone('Canada/Eastern')));
 
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($weatherStationData);

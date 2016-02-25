@@ -2,11 +2,12 @@
 
 {% block body %}
 
-    <h1>Mes stations météos</h1>
+    <h1>Les stations météos</h1>
     {% if weatherStations|length > 0 %}
         <table class="table table-bordered">
             <tr>
                 <th>Nom de la station</th>
+                <th>Location</th>
                 <th>Température</th>
                 <th>Humidité</th>
                 <th>Pression</th>
@@ -15,6 +16,7 @@
             {% for station in weatherStations %}
                 <tr>
                     <td>{{ station.name }}</td>
+                    <td>{{ station.location }}</td>
                     {% if weatherDatas[station.pin] is null %}
                         <td>Aucune données</td>
                         <td>Aucune données</td>
