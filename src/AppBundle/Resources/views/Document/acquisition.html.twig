@@ -1,0 +1,36 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+
+
+
+    <h1>Acquisition des connaissances</h1>
+
+    <h3>Le Raspberry Pi</h3>
+    <p>
+        Il serait difficile d’expliquer ce projet sans parler d’abord du Raspberry Pi et de ses connecteurs GPIO. Ces connecteurs ne peuvent transmettre et lire que des données numériques, c’est-à-dire des zéros et des uns. Cela nous limite dans la mesure où nous aurions voulu obtenir plus
+        d’informations comme le voltage de certains éléments. Même si ces éléments ont par la suite été abandonnés dû aux contraintes de budgets et de temps, nous avons tout de même pris la décision de contrer cette limitation dans une perspective d’avenir. C’est alors pourquoi nous avons connecté
+        un Arduino Uno au Pi. Nous expliquerons plus bas ce que l’Arduino nous a apporté ainsi que son fonctionnement. Le Raspberry Pi quant à lui est simplement un micro-ordinateur avec des composantes miniatures. Le système d’exploitation est au choix et nous avons choisi d’y installer Linux sous
+        la version « Raspbian » spécialement conçue pour cet appareil.
+    </p>
+
+    <h3>Arduino Uno</h3>
+    <p>
+        L’Arduino est en fait un microcontrôleur assez simple d’utilisation. Il nous permet de lire des données autant analogiques que numériques et de les transmettre par communication série à un ordinateur tel le Raspberry Pi. Le Arduino se programme en C++ et est très simple à programmer. Il y a
+        d’abord la méthode « setup » qui permet de définir quelques variables et la méthode « loop » qui boucle à l’infini, pouvant être contrôlée par certaines commandes, autant un bouton qu’une commande série, afin de permettre au microcontrôleur d’exécuter les tâches qui lui sont assignées.
+    </p>
+
+    <h3>PHP</h3>
+    <p>
+        Nous avons tous les deux appris le langage de programmation dans nos temps libres sur le site « OpenClassroom ». Nous n’avons pas eu le choix, car celui-ci est le langage de programmation de base que nous voulions utiliser pour créer le site web ainsi que l’API REST.
+    </p>
+
+    <h3>Symfony</h3>
+    <p>
+        Encore une fois, grâce au site web « OpenClassroom », nous avons bénéficié d’un excellent cours sur le framework PHP Symfony. Ce framework est le cœur de notre site web PHP, sans lui, celui-ci ne serait pas programmé de façon aussi structurée, robuste et fiable. C’est à ce framework français
+        que nous devons aussi les méthodes que nous avons utilisées pour construire notre API REST en JSON.
+    </p>
+
+
+{% endblock %}
+

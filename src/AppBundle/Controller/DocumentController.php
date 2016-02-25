@@ -20,17 +20,17 @@ class DocumentController extends Controller {
 
     public function acquisitionConnaissancesAction()
     {
-        return new Response('En construction...');
+        return $this->render('AppBundle:Document:acquisition.html.twig');
     }
 
     public function bibliographieAction()
     {
-        return new Response('En construction...');
+        return $this->render('AppBundle:Document:bibliographie.html.twig');
     }
 
     public function conclusionBilanAction()
     {
-        return new Response('En construction...');
+        return $this->render('AppBundle:Document:conclusion.html.twig');
     }
 
     public function demarcheExperimentaleAction()
