@@ -14,7 +14,7 @@ class DocumentController extends Controller {
 
     public function resultatsRechercheAction()
     {
-        return new Response('En construction...');
+        return $this->render('AppBundle:Document:resultatsRecherche.html.twig');
     }
 
 
