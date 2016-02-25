@@ -40,7 +40,7 @@ class DocumentController extends Controller {
 
     public function difficultesAction()
     {
-        return new Response('En construction...');
+        return $this->render('AppBundle:Document:difficultes.html.twig');
     }
 
 }

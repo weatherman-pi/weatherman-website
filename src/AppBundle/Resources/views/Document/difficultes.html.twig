@@ -1,0 +1,12 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+
+    <h1>Les difficultés rencontrées</h1>
+    <br>
+
+    <p>
+        Pendant le développement du projet, nous avons rencontré quelques difficultés. Parmi ceux-ci, deux nous ont fait prendre du retard sur la conception de la station météo. La première fut les ports GPIO du Raspberry Pi qui ne fonctionne que de façon numérique. La problématique était que ces ports ne prennent que des bits à zéro ou à un. Il est alors difficile de faire une lecture directement depuis le Pi. Nous en sommes donc venus à la conclusion d’utiliser plutôt un Arduino, qui lui, permet la lecture de ports analogique et de retour de voltage afin de lire des données provenant d’autres capteurs que celui mesurant Température, Humidité et Pression. La connexion de l’Arduino au Raspberry Pi fut un deuxième défi, car en temps normal, pour lire les données de l’Arduino, il est nécessaire que ce soit fait dans une fenêtre console qui lit les informations du port série de l’Arduino. Il a donc fallu apprendre et rechercher comment à partir d’un script Python nous pouvons lire les informations d’un port série sans passer par la console officielle. Après un peu de recherche, nous avons réalisé que ce n’était pas si difficile que cela. Il ne suffit que d’importer la librairie native « serial » de python et d’utiliser les méthodes « read » et « write » de celle-ci. Un autre point que nous pourrions ajouté c’est la courbe d’apprentissage du langage PHP et du framework Symfony. Le framework PHP Symfony est un très gros plan de travail et nous as couté beaucoup de temps avant de le maitriser suffisamment pour la réalisation de notre site web et API REST.
+    </p>
+{% endblock %}
+
